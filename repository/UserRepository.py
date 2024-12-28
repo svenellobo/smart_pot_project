@@ -1,5 +1,6 @@
 from utils.DButil import DBUtil
 from datasource.dto.UserDto import UserDto
+import os
 
 
 class UserRepository:
@@ -9,7 +10,7 @@ class UserRepository:
     def __init__(self, db):
         self.db = db
         self.create_table()
-        #self._create_user()
+        self._create_user()
 
 
 
@@ -56,6 +57,7 @@ class UserRepository:
         self.add_user("John", "Smith", "user", "123")
 
     
+
 
 
 

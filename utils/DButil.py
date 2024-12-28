@@ -3,10 +3,10 @@ from sqlite3 import Connection, Cursor
 class DBUtil:
 
     @staticmethod
-    def execute_and_write(db: Connection, upit):
+    def execute_and_write(db: Connection, query):
         try:
             cursor: Cursor = db.cursor()
-            cursor.execute(upit)
+            cursor.execute(query)
             db.commit()
             cursor.close()
             return True
@@ -16,10 +16,10 @@ class DBUtil:
 
 
     @staticmethod
-    def grab_data(db: Connection, upit):
+    def grab_data(db: Connection, query):
         try:
             cursor: Cursor = db.cursor()
-            cursor.execute(upit)
+            cursor.execute(query)
             rezultat = cursor.fetchone()
             cursor.close()
             return rezultat
@@ -30,10 +30,10 @@ class DBUtil:
 
 
     @staticmethod
-    def fetch_data_list(db: Connection, upit):
+    def fetch_data_list(db: Connection, query):
         try:
             cursor: Cursor = db.cursor()
-            cursor.execute(upit)
+            cursor.execute(query)
             rezultat = cursor.fetchall()
             cursor.close()
             return rezultat

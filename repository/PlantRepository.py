@@ -1,3 +1,5 @@
+import os.path
+
 from utils.DButil import DBUtil
 from datasource.dto.PlantDto import PlantDto
 
@@ -8,7 +10,8 @@ class PlantRepository:
     def __init__(self, db):
         self.db = db
         self.create_table()
-        #self._add_plants()
+        self._add_plants()
+
 
 
     def create_table(self):
@@ -93,7 +96,7 @@ class PlantRepository:
         else:
             return None
 
-    def _add_plants(self):
+    def _add_plants(self, db_path="Pyflora.db"):
         self.add_plant("Spatifilum", "./images/spatifilum.png", 5.8, 6.5, 3, 5, 20, 25, 3, "./images/plant_info/spatifilum.txt", "https://www.vrtlarica.hr/spatifilum-sadnja-uzgoj/")
         self.add_plant("Basil", "./images/basil.jpg", 4.3, 8.2, 6, 10, 15, 25, 7, "./images/plant_info/basil.txt", "https://www.vrtlarica.hr/bosiljak-sadnja-uzgoj/")
         self.add_plant("Oregano", "./images/oregano.jpg", 5.6, 7, 8, 12, 16, 26, 7, "./images/plant_info/oregano.txt", "https://www.vrtlarica.hr/sadnja-uzgoj-origana/")
